@@ -1,0 +1,2 @@
+<!--components/like/index.wxml-->
+<button class="button" bindgetuserinfo="bindGetUserInfo" open-type="getUserInfo">按钮</button>

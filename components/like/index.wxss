@@ -1,0 +1,5 @@
+/* components/like/index.wxss */
+.button {
+  height: 100rpx;
+  width: 300rpx;
+}
