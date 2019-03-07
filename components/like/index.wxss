@@ -1,5 +1,14 @@
 /* components/like/index.wxss */
-.button {
-  height: 100rpx;
-  width: 300rpx;
+.container {
+
+}
+.container image{
+  width: 32rpx;
+  height: 28rpx;
+}
+.container text {
+  /* ios苹方 android思源 */
+  font-family: "PingFangSC-Thin";/*ios苹方 */
+  font-size: 48rpx;
+  color: #bbbbbb;
 }

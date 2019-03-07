@@ -1,2 +1,5 @@
 <!--components/like/index.wxml-->
-<button class="button" bindgetuserinfo="bindGetUserInfo" open-type="getUserInfo">按钮</button>
+<view class="container">
+  <image src="images/like.png"></image>
+  <text>9</text>
+</view>
