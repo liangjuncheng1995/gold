@@ -1,25 +1,34 @@
 // pages/classic/classic.js
+import { ClassicModel } from "../../models/classic.js"
+import { LikeModel } from "../../models/like.js"
+let classicModel = new ClassicModel()
+let likeModel = new LikeModel()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    title: "梁钧成"
+    classic: null,
+    test: 1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(typeof getCurrentPages())
-    console.log(getCurrentPages())
-    console.log(this.data.title)
-    wx.getSystemInfo({
-      success: (res) => {
-        console.log(res)
-      }
+    classicModel.getLatest((res) => {
+      this.setData({
+        classic: res
+      })
     })
+  },
+  //点击喜欢和取消喜欢的事件
+  onLike(event) {
+    console.log(event)
+    // 接受组件传过来的参数（状态）
+    let behavior = event.detail.behavior
+    likeModel.like(behavior, this.data.classic.id,this.data.classic.type)
   },
 
   /**
@@ -54,7 +63,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**
