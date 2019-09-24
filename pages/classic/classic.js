@@ -10,19 +10,35 @@ Page({
    */
   data: {
     classic: null,
-    test: 1
+    test: 1,
+    latest: true,
+    first: false,
+    likeCount: 0,
+    likeStatus: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // let a = "123"
+    // console.log(`${a}456`)
+    // console.log(`${this.test()}456`)
+   
+  
     classicModel.getLatest((res) => {
       this.setData({
-        classic: res
+        classic: res,
+        likeCount: res.fav_nums,
+        likeStatus: res.like_status
+        // 扩展运算符
+        // ...res
       })
     })
   },
+  // test() {
+  //   return 123
+  // },
   //点击喜欢和取消喜欢的事件
   onLike(event) {
     console.log(event)
@@ -30,6 +46,32 @@ Page({
     let behavior = event.detail.behavior
     likeModel.like(behavior, this.data.classic.id,this.data.classic.type)
   },
+  onNext() {//下一期
+    this._undateClassic('next')
+  },
+  onPre() {//上一期
+    this._undateClassic('previous')
+  },
+  _undateClassic(nextOrPrevious) {
+    let index = this.data.classic.index
+    classicModel.getClassic(index, nextOrPrevious, (res) => {
+      this._getLikeStatus(res.id, res.type)
+      this.setData({
+        classic: res,
+        latest: classicModel.isLatest(res.index),
+        first: classicModel.isFirst(res.index)
+      })
+    })
+  },
+  _getLikeStatus(artID, category) {
+    likeModel.getClassicLikeStatus(artID, category,(res) => {
+      this.setData({
+        likeCount: res.fav_nums,
+        likeStatus: res.like_status
+      })
+    })
+  },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

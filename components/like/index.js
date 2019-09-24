@@ -3,6 +3,7 @@ Component({
   /**
    * 组件的属性列表
    */
+  
   properties: {
     like: {
       type: Boolean,
@@ -51,7 +52,7 @@ Component({
         count: count,
         like: !like 
       })
-      // console.log(like)
+      console.log(like)
       // this.properties.like = !like
       //激活自定义的参数(组件向外传递数据)
       let behavior = this.properties.like ? "like" : "cancel"
