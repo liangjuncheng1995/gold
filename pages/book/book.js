@@ -12,7 +12,9 @@ Page({
     // async await ES2017
     // 一次调用，多次调用服务器API 链式调用
 
-    books: []
+    books: [],
+    searching: false,
+    more: false
 
   }, 
 
@@ -20,6 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("book")
     const hotList = bookModel.getHotList()
     hotList.then(res => {
       // console.log(res)
@@ -64,53 +67,20 @@ Page({
     //   console.log(error)
     // })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onSearching() {
+    this.setData({
+      searching: true
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onCancel() {
+    this.setData({
+      searching: false
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  // 监听页面滚动到底部
+  onReachBottom() {
+    setData({
+      more: true
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

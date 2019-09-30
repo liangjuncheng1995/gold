@@ -4,7 +4,9 @@
     "components/classic/music/index",
     "pages/book/book",
     "pages/my/my",
-    "pages/book-detail/book-detail"
+    "pages/book-detail/book-detail",
+    "components/mask/index",
+    "components/search/index"
   ],
   "requiredBackgroundModes": [
     "audio"
@@ -19,7 +21,7 @@
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "selectedColor": "#000000",
-    "backgroundColor": "ffffff",
+    "backgroundColor": "#ffffff",
     "color": "#c7c7c7",
     "list": [
       {

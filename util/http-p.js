@@ -7,13 +7,12 @@ const tips = {
 }
 // 解构
 class HTTP {
-  request({url, data = {}, method = "GET"}) {
+  request({url, data, method}) {
     return new Promise((resolve, reject) => {
-      this._request(url, resolve, reject, data = {}, method = "GET")
+      this._request(url, resolve, reject, data, method)
     })
   }
-
-  _request(url,resolve,reject,data={},method="GET") {
+  _request(url,resolve,reject,data,method) {
     wx.request({
       url: config.api_base_url + url,
       method: method,
@@ -38,7 +37,6 @@ class HTTP {
         reject()
         this._show_error(1)
       }
-
     })
   }
   _show_error(error_code) {
