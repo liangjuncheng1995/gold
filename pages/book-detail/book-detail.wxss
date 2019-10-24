@@ -115,7 +115,7 @@
 }
 
 .like {
-  margin-right: 30rpx;
+  /* margin-right: 30rpx; */
   margin-top: 10rpx;
 }
 .like-container {
@@ -123,6 +123,17 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center; 
+}
+
+.share-btn{
+  margin-top:28rpx;
+  margin-left:10rpx;
+}
+
+.share{
+  /* padding:10rpx; */
+  width:40rpx;
+  height:40rpx;
 }
 
 .posting-container {

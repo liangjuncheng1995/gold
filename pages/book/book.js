@@ -1,5 +1,8 @@
 // pages/book/book.js
 import { BookModel } from "../../models/book.js"
+import {
+  random
+} from '../../util/common.js'
 let bookModel = new BookModel()
 Page({
 
@@ -14,7 +17,7 @@ Page({
 
     books: [],
     searching: false,
-    more: false
+    more: ""
 
   }, 
 
@@ -79,8 +82,8 @@ Page({
   },
   // 监听页面滚动到底部
   onReachBottom() {
-    setData({
-      more: true
+    this.setData({
+      more: random(16)
     })
   },
 })

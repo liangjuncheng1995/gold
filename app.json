@@ -5,6 +5,8 @@
     "pages/book/book",
     "pages/my/my",
     "pages/book-detail/book-detail",
+    "pages/about/about",
+    "pages/course/course",
     "components/mask/index",
     "components/search/index"
   ],

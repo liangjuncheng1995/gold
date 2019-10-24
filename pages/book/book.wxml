@@ -1,4 +1,6 @@
-
+<!-- <input type='number'></input> android 微信键盘 -->
+<!-- <input type='idcard'></input> -->
+ <!-- iphone ios android微信键盘 -->
 
 <view wx:if="{{!searching}}" class='container'>
   <view class='header'>
